@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox spacing="10" alignment="CENTER" fx:id="root"
+      fx:controller="exercise9.controller.WinnerScreenController"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml">
+
+    <padding>
+        <Insets topRightBottomLeft="25"></Insets>
+    </padding>
+
+    <Text text="Congratulations!" style="-fx-font: NORMAL 30 Tahoma;">
+        <VBox.margin><Insets bottom="20"></Insets></VBox.margin>
+    </Text>
+
+    <Text text="You completed the level with just" style="-fx-font-size: 15">
+        <VBox.margin><Insets bottom="-5"></Insets></VBox.margin>
+    </Text>
+
+    <Text text="" fx:id="steps" style="-fx-font-size: 24">
+        <VBox.margin><Insets bottom="-5"></Insets></VBox.margin>
+    </Text>
+
+    <Text text="steps." style="-fx-font-weight: bold; -fx-font-size: 18;"></Text>
+
+    <Text text="Add your name to the score list if you want." fx:id="addPersonDescription"></Text>
+
+    <HBox alignment="CENTER" spacing="10" fx:id="enterNameBox">
+        <TextField promptText="Enter name..." focusTraversable="false"
+                   onKeyPressed="#addKeyListener" fx:id="enterNameField">
+        </TextField>
+        <Button text="Add" onAction="#addButton"></Button>
+    </HBox>
+
+    <GridPane alignment="CENTER">
+        <TableView fx:id="tableView" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                   maxWidth="350" prefWidth="350" prefHeight="180">
+            <columns>
+                <TableColumn text="Name">
+                    <cellValueFactory><PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Least steps" fx:id="leastStepsColumn">
+                    <cellValueFactory><PropertyValueFactory property="amountOfSteps" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </GridPane>
+
+    <Text text="Try again?"></Text>
+    <HBox spacing="10" alignment="CENTER" fx:id="tryAgainBox">
+        <Button text="Yes" onAction="#yesButton"></Button>
+        <Button text="No" onAction="#noButton"></Button>
+    </HBox>
+
+</VBox>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.Integer?>
+
+<?import javafx.scene.layout.HBox?>
+<VBox spacing="10" alignment="CENTER" fx:id="root"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="exercise9.controller.WelcomeScreenController">
+
+    <padding>
+        <Insets topRightBottomLeft="25"></Insets>
+    </padding>
+
+    <Text text="Simple 2D Tile Game" style="-fx-font: NORMAL 40 Tahoma;">
+        <VBox.margin><Insets bottom="30"></Insets></VBox.margin>
+    </Text>
+
+    <Text text="Collect all the gems and find the exit." style="-fx-font-size: 14">
+        <VBox.margin><Insets bottom="20"></Insets></VBox.margin>
+    </Text>
+
+    <Text text="Choose Level" style="-fx-font-size: 14"></Text>
+    <fx:define>
+        <ToggleGroup fx:id="levelToggle"></ToggleGroup>
+    </fx:define>
+    <HBox alignment="CENTER">
+        <VBox spacing="10" alignment="CENTER_LEFT">
+            <RadioButton text="Mystery Island" toggleGroup="$levelToggle" fx:id="dannyLevel" focusTraversable="false"
+            selected="true"></RadioButton>
+            <RadioButton text="Maze Hell" toggleGroup="$levelToggle" fx:id="erlendLevel" focusTraversable="false">
+                <VBox.margin><Insets bottom="20"></Insets></VBox.margin>
+            </RadioButton>
+        </VBox>
+    </HBox>
+
+    <Text text="Enable Dark Mode" style="-fx-font-size: 14"></Text>
+    <fx:define>
+        <ToggleGroup fx:id="darkModeToggle"></ToggleGroup>
+    </fx:define>
+    <HBox spacing="10" alignment="CENTER">
+        <RadioButton text="Yes" toggleGroup="$darkModeToggle" fx:id="yesToggle" focusTraversable="false"></RadioButton>
+        <RadioButton text="No" toggleGroup="$darkModeToggle" fx:id="noToggle" focusTraversable="false"
+        selected="true"></RadioButton>
+    </HBox>
+
+    <Button text="Play" prefWidth="100" onAction="#playButton">
+        <VBox.margin><Insets bottom="20" top="20"></Insets></VBox.margin>
+    </Button>
+
+    <Text text="Press ESC to go back to this menu."></Text>
+    <Text text="Press SPACE to restart the game."></Text>
+
+</VBox>
